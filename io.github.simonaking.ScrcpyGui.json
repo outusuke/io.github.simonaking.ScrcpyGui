@@ -1,0 +1,58 @@
+{
+    "id": "io.github.simonaking.ScrcpyGui",
+    "runtime": "org.freedesktop.Platform",
+    "runtime-version": "23.08",
+    "sdk": "org.freedesktop.Sdk",
+    "base": "org.electronjs.Electron2.BaseApp",
+    "base-version": "23.08",
+    "command": "scrcpy-gui",
+    "separate-locales": false,
+
+    "finish-args": [
+        "--share=ipc",
+        "--share=network",
+        "--socket=wayland",
+        "--socket=fallback-x11",
+        "--socket=pulseaudio",
+        "--device=dri",
+        "--device=all",
+        "--filesystem=home",
+        "--talk-name=org.freedesktop.Notifications",
+        "--talk-name=org.freedesktop.ScreenSaver",
+        "--talk-name=org.kde.StatusNotifierWatcher"
+    ],
+
+    "modules": [
+        {
+            "name": "scrcpy-gui",
+            "buildsystem": "simple",
+            "build-commands": [
+                "ar x scrcpy-gui_2.4.5_amd64.deb",
+                "mkdir -p _data && tar -C _data -xf data.tar.xz",
+                "install -d /app/lib/scrcpy-gui",
+                "cp -r \"_data/opt/Scrcpy GUI/.\" /app/lib/scrcpy-gui/",
+                "rm -f /app/lib/scrcpy-gui/chrome-sandbox",
+                "chmod 755 /app/lib/scrcpy-gui/scrcpy-gui",
+                "chmod 755 /app/lib/scrcpy-gui/resources/scrcpy/scrcpy /app/lib/scrcpy-gui/resources/scrcpy/adb /app/lib/scrcpy-gui/resources/scrcpy/scrcpy-server",
+                "install -d /app/bin",
+                "install -m755 /dev/stdin /app/bin/scrcpy-gui <<'EOF'\n#!/bin/sh\nexec zypak-wrapper /app/lib/scrcpy-gui/scrcpy-gui \"$@\"\nEOF",
+                "install -Dm644 _data/usr/share/applications/scrcpy-gui.desktop /app/share/applications/io.github.simonaking.ScrcpyGui.desktop",
+                "sed -i -e 's|^Exec=.*|Exec=scrcpy-gui %U|' -e 's|^Icon=.*|Icon=io.github.simonaking.ScrcpyGui|' /app/share/applications/io.github.simonaking.ScrcpyGui.desktop",
+                "for size in 16 24 32 48 64 128 256 512 1024; do install -Dm644 \"_data/usr/share/icons/hicolor/${size}x${size}/apps/scrcpy-gui.png\" \"/app/share/icons/hicolor/${size}x${size}/apps/io.github.simonaking.ScrcpyGui.png\"; done",
+                "install -Dm644 io.github.simonaking.ScrcpyGui.metainfo.xml /app/share/metainfo/io.github.simonaking.ScrcpyGui.metainfo.xml"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://github.com/SimonAKing/scrcpy-gui/releases/download/v2.4.5/Scrcpy.GUI-2.4.5-linux-amd64.deb",
+                    "sha256": "07e48190e73d95cfd15fd85e5fab2bc5525918c0f3f3bd78af5b5a4be7061f7a",
+                    "dest-filename": "scrcpy-gui_2.4.5_amd64.deb"
+                },
+                {
+                    "type": "file",
+                    "path": "io.github.simonaking.ScrcpyGui.metainfo.xml"
+                }
+            ]
+        }
+    ]
+}
