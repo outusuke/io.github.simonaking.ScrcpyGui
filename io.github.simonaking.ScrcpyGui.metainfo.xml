@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.simonaking.ScrcpyGui</id>
+  <name>Scrcpy GUI</name>
+  <summary>A simple, modern desktop interface for scrcpy</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <developer id="io.github.simonaking">
+    <name>Simon Ma</name>
+  </developer>
+
+  <description>
+    <p>
+      Scrcpy GUI discovers Android devices over USB or wireless debugging and
+      launches scrcpy with a reliable, visual configuration. It supports
+      several devices at once, recording, audio, modern keyboard modes,
+      cropping, window placement, and the current scrcpy 4.x command line.
+    </p>
+    <p>Highlights:</p>
+    <ul>
+      <li>Automatic USB discovery, Android 11+ wireless pairing, and legacy TCP/IP connections</li>
+      <li>Simultaneous multi-device launch with named profiles and device groups</li>
+      <li>Recording, audio forwarding, and modern SDK/UHID/AOA keyboard modes</li>
+      <li>Verified official scrcpy and adb bundled with the release, no PATH setup required</li>
+    </ul>
+  </description>
+
+  <launchable type="desktop-id">io.github.simonaking.ScrcpyGui.desktop</launchable>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/SimonAKing/scrcpy-gui/master/docs/images/scrcpy-gui-v2-devices.png</image>
+      <caption>Devices and wireless connection screen</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/SimonAKing/scrcpy-gui/master/docs/images/scrcpy-gui-v2-settings.png</image>
+      <caption>Settings screen</caption>
+    </screenshot>
+  </screenshots>
+
+  <url type="homepage">https://github.com/SimonAKing/scrcpy-gui</url>
+  <url type="bugtracker">https://github.com/SimonAKing/scrcpy-gui/issues</url>
+  <url type="vcs-browser">https://github.com/SimonAKing/scrcpy-gui</url>
+
+  <content_rating type="oars-1.1" />
+
+  <releases>
+    <release version="2.4.5" date="2026-09-14">
+      <description>
+        <p>See the upstream changelog for details.</p>
+      </description>
+    </release>
+  </releases>
+
+  <categories>
+    <category>Utility</category>
+  </categories>
+</component>
