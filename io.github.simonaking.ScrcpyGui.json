@@ -14,7 +14,6 @@
         "--socket=wayland",
         "--socket=fallback-x11",
         "--socket=pulseaudio",
-        "--device=dri",
         "--device=all",
         "--filesystem=xdg-download/scrcpygui:create",
         "--persist=.android",
@@ -45,9 +44,9 @@
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://github.com/SimonAKing/scrcpy-gui/releases/download/v2.4.5/Scrcpy.GUI-2.4.5-linux-amd64.deb",
-                    "sha256": "07e48190e73d95cfd15fd85e5fab2bc5525918c0f3f3bd78af5b5a4be7061f7a",
-                    "dest-filename": "scrcpy-gui_2.4.5_amd64.deb"
+                    "url": "https://github.com/SimonAKing/scrcpy-gui/releases/download/v2.5.0/Scrcpy.GUI-2.5.0-linux-amd64.deb",
+                    "sha256": "f56c4273a99ef28907d884a4a5b4c1b61e6152e588e65b741f2b2c3bf7c9124e",
+                    "dest-filename": "scrcpy-gui_2.5.0_amd64.deb"
                 },
                 {
                     "type": "file",
