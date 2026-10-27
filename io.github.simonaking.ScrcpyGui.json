@@ -27,7 +27,7 @@
             "name": "scrcpy-gui",
             "buildsystem": "simple",
             "build-commands": [
-                "ar x scrcpy-gui_2.4.5_amd64.deb",
+                "ar x scrcpy-gui_2.5.0_amd64.deb",
                 "mkdir -p _data && tar -C _data -xf data.tar.xz",
                 "install -d /app/lib/scrcpy-gui",
                 "cp -r \"_data/opt/Scrcpy GUI/.\" /app/lib/scrcpy-gui/",
